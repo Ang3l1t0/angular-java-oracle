@@ -1,0 +1,10 @@
+logging.level.org.springframework.boot.autoconfigure=ERROR
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+    spring.datasource.username=TC_USER_01
+    spring.datasource.password=root
+    spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+
+# Hibernate
+	spring.jpa.show-sql=true
+    spring.jpa.hibernate.ddl-auto = none
+	logging.level.org.hibernate.SQL=debug

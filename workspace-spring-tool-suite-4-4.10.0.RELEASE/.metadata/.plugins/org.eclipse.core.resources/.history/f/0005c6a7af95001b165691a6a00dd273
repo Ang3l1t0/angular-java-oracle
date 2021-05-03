@@ -1,0 +1,9 @@
+package jpa.seleccion.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import jpa.seleccion.model.Seleccionados;
+
+public interface SeleccionadosRepository extends CrudRepository<Seleccionados, String>{
+
+}

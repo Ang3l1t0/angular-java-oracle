@@ -1,0 +1,83 @@
+package jpa.seleccion.controller;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
+
+import jpa.seleccion.model.Candidatos;
+import jpa.seleccion.model.Seleccionados;
+import jpa.seleccion.repository.CandidatosRepository;
+import jpa.seleccion.repository.SeleccionadosRepository;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("candidatos/seleccion")
+public class SeleccionadosController {
+    
+    @Autowired
+    private JdbcTemplate jdbc;
+    private SeleccionadosRepository seleccionadosRepository;
+    @GetMapping
+    public ResponseEntity<List<Seleccionados>> getSeleccionados() {
+		
+		SqlParameterSource paramIn = new MapSqlParameterSource();
+		
+		SimpleJdbcCall refCursor = new SimpleJdbcCall(jdbc)
+				.withProcedureName("GET_SELECCIONADOS")
+				.returningResultSet("RESPONSE",BeanPropertyRowMapper.newInstance(Seleccionados.class));
+		try {
+			Map<String, Object> getSeleccionados = refCursor.execute(paramIn);
+			List<Seleccionados> seleccionados = (List<Seleccionados>) getSeleccionados.get("RESPONSE");
+			return new ResponseEntity<List<Seleccionados>>(seleccionados,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+    
+    @RequestMapping(value="download", method=RequestMethod.GET)
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+    	response.setContentType("text/csv");
+    	DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = dateFormatter.format(new Date());
+        
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=seleccionados_" + currentDateTime + ".csv";
+        response.setHeader(headerKey, headerValue);
+        
+        List<Seleccionados> seleccionados = service.findAll();
+
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = {"TIPO DOCUMENTO", "NUMERO DOCUMENTO", "NOMBRE", "APELLIDO", "EDAD", "SEXO", "CIUDAD", "NIVEL EDUCATIVO", "PROFESION", "SCORE"};
+        String[] nameMapping = {"tipoDocumento", "documento", "nombres", "apellidos", "edad", "sexo", "ciudad", "nivelEducativo", "profesion", "score"};
+        csvWriter.writeHeader(csvHeader);
+        
+        for (Seleccionados seleccionado : seleccionados) {
+            csvWriter.write(seleccionado, nameMapping);
+        }
+         
+        csvWriter.close();
+         
+    }  
+}

@@ -1,0 +1,5 @@
+package jpa.seleccion.services;
+
+public class SeleccionadosServices {
+
+}

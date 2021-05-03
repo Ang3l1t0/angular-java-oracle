@@ -1,0 +1,5 @@
+package jpa.seleccion.config;
+
+public class SwaggerConfig {
+
+}

@@ -1,0 +1,23 @@
+package jpa.seleccion.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import jpa.seleccion.model.Seleccionados;
+import jpa.seleccion.repository.SeleccionadosRepository;
+
+@Service
+@Transactional
+public class SeleccionadosService {
+
+	@Autowired
+	private SeleccionadosRepository repo;
+	
+	public List<Seleccionados> listAll() {
+        return repo.findAll();
+    }
+}

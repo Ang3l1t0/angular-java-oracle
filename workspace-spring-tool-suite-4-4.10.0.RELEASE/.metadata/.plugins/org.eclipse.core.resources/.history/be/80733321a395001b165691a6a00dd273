@@ -1,0 +1,9 @@
+package jpa.seleccion.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import jpa.seleccion.model.Seleccionados;
+
+public interface SeleccionadosRepository extends JpaRepository<Seleccionados, String>{
+
+}
