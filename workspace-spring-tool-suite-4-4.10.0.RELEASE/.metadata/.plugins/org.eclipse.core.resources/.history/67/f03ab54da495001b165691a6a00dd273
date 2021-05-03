@@ -1,5 +1,0 @@
-package jpa.seleccion.repository;
-
-public interface SeleccionadosRepository {
-
-}
