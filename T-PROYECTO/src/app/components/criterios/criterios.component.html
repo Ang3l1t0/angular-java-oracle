@@ -1,0 +1,327 @@
+<div class="criterios">
+  <div class="selectores">
+    <div class="titulo">CRITERIOS</div>
+    <div class="desplegable">
+      <app-desplegable></app-desplegable>
+      <app-desplegable></app-desplegable>
+      <app-desplegable></app-desplegable>
+      <app-desplegable></app-desplegable>
+      <app-desplegable></app-desplegable>
+    </div>
+  </div>
+  <div class="porcentaje">
+    <div class="titulo">VALORACION %</div>
+    <div class="valor">
+      <input class="form-control form-control-lg" type="number" min="0" max="100">
+    </div>
+    <div class="valor">
+      <input class="form-control form-control-lg" type="number" min="0" max="100">
+    </div>
+    <div class="valor">
+      <input class="form-control form-control-lg" type="number" min="0" max="100">
+    </div>
+    <div class="valor">
+      <input class="form-control form-control-lg" type="number" min="0" max="100">
+    </div>
+    <div class="valor">
+      <input class="form-control form-control-lg" type="number" min="0" max="100">
+    </div>
+  </div>
+  <div class="botones">
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+        [attr.data-target]="'#' + this.dataService.criterioSeleccionado"
+        (click)="onClick(dataService.criterioSeleccionado)">
+        SEGMENTACION
+      </button>
+    </div>
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+        [attr.data-target]="'#' + this.dataService.criterioSeleccionado"
+        (click)="onClick(dataService.criterioSeleccionado)">
+        SEGMENTACION
+      </button>
+    </div>
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+        [attr.data-target]="'#' + this.dataService.criterioSeleccionado"
+        (click)="onClick(dataService.criterioSeleccionado)">
+        SEGMENTACION
+      </button>
+    </div>
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+        [attr.data-target]="'#' + this.dataService.criterioSeleccionado"
+        (click)="onClick(dataService.criterioSeleccionado)">
+        SEGMENTACION
+      </button>
+    </div>
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+        [attr.data-target]="'#' + this.dataService.criterioSeleccionado"
+        (click)="onClick(dataService.criterioSeleccionado)">
+        SEGMENTACION
+      </button>
+    </div>
+    <div class="boton">
+      <button type="button" class="btn btn-outline-primary" [routerLink]="['/candidatos/seleccion']">
+        GUARDAR
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ciudad-->
+<div class="modal fade" id="CIUDAD" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">CIUDAD</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="ciudad">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-ciudad></app-desplegable-ciudad>
+          <app-desplegable-ciudad></app-desplegable-ciudad>
+          <app-desplegable-ciudad></app-desplegable-ciudad>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Data Credito-->
+<div class="modal fade" id="DATA CREDITO" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">DATA CREDITO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edad-->
+<div class="modal fade" id="EDAD" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">EDAD</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="edades">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-edad></app-desplegable-edad>
+          <app-desplegable-edad></app-desplegable-edad>
+          <app-desplegable-edad></app-desplegable-edad>
+        </div>
+        <div class="edades2">
+          <app-desplegable-edad></app-desplegable-edad>
+          <app-desplegable-edad></app-desplegable-edad>
+          <app-desplegable-edad></app-desplegable-edad>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Nivel Educativo-->
+<div class="modal fade" id="NIVEL EDUCATIVO" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">NIVEL EDUCATIVO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="nivelEducativo">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-ne></app-desplegable-ne>
+          <app-desplegable-ne></app-desplegable-ne>
+          <app-desplegable-ne></app-desplegable-ne>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Profesion -->
+<div class="modal fade" id="PROFESION" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">NIVEL EDUCATIVO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="nivelEducativo">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-profesion></app-desplegable-profesion>
+          <app-desplegable-profesion></app-desplegable-profesion>
+          <app-desplegable-profesion></app-desplegable-profesion>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sexo-->
+<div class="modal fade" id="SEXO" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">SEXO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="sexo">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-sexo></app-desplegable-sexo>
+          <app-desplegable-sexo></app-desplegable-sexo>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal ESTRATO-->
+<div class="modal fade" id="ESTRATO" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenter"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">ESTRATO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="ciudad">
+          <h4>SEGMENTOS</h4>
+          <app-desplegable-estrato></app-desplegable-estrato>
+          <app-desplegable-estrato></app-desplegable-estrato>
+          <app-desplegable-estrato></app-desplegable-estrato>
+        </div>
+        <div class="values">
+          <h4>PRIORIDAD</h4>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+          <div class="porcentaje">
+            <input class="form-control form-control-lg" type="number" min="1" max="3">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>

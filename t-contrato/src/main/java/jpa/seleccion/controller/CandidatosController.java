@@ -1,0 +1,78 @@
+package jpa.seleccion.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import jpa.seleccion.model.Candidatos;
+import jpa.seleccion.repository.CandidatosRepository;
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("candidatos")
+
+public class CandidatosController {
+
+    /**
+     * Se generan los diferentes metodos para los candidatos
+     * get all
+     * post
+     * delete
+     */
+    
+    @Autowired
+    private CandidatosRepository candidatosRepository;
+
+    @GetMapping
+    public ResponseEntity<List<Candidatos>> getCandidatos() {
+        /*
+         * Returns all candidatos
+         */
+
+        List<Candidatos> candidatos = candidatosRepository.findAll();
+        return ResponseEntity.ok(candidatos);
+
+    }
+
+    @RequestMapping(value = "{candidatoId}")
+    public ResponseEntity<Candidatos> getCandidatosById(@PathVariable("candidatoId") Long dbId) {
+        /*
+         * Returns candidatos by Id
+         */
+
+        Optional<Candidatos> optionalCandidatos = candidatosRepository.findById(dbId);
+        if (optionalCandidatos.isPresent()) {
+            return ResponseEntity.ok(optionalCandidatos.get());
+        } else {
+            return ResponseEntity.noContent().build(); // If there are no id number returns no content.
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Candidatos> createCandidatos(@RequestBody Candidatos candidato) {
+        /*
+         * Create new candidato
+         */
+        Candidatos newCandidatos = candidatosRepository.save(candidato);
+        return ResponseEntity.ok(newCandidatos);
+    }
+
+    @DeleteMapping(value = "{candidatoId}")
+    public ResponseEntity<Void> deleteCandidatos(@PathVariable("candidatoId") Long dbIb) {
+        /*
+         * Delete candidato
+         */
+        candidatosRepository.deleteById(dbIb);
+        return ResponseEntity.ok(null);
+    }
+}

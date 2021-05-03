@@ -1,0 +1,9 @@
+.desplegable {
+  margin: 10px;
+}
+
+.edad {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}

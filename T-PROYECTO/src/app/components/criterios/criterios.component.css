@@ -1,0 +1,48 @@
+.desplegable {
+  margin: 10px;
+}
+
+.titulo {
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.valor {
+  margin: 10px;
+}
+
+.porcentaje {
+  margin: 10px;
+}
+
+.boton {
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  align-items: center;
+  justify-content: center;
+}
+
+.edades2 {
+  margin-top: 40px;
+}
+.criterios {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 10px;
+}

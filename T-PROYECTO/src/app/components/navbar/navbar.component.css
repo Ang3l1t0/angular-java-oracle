@@ -1,0 +1,19 @@
+.titulos {
+  display: flex;
+  color: white;
+  font-weight: bold;
+}
+
+.titulo_proyecto {
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.titulos-nav {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  color: white;
+}

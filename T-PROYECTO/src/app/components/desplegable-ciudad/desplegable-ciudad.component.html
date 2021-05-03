@@ -1,0 +1,8 @@
+<div class="desplegable" (change)="capturar()">
+  <select class="form-control form-control-lg" [(ngModel)]="ciudadSeleccionada">
+    <option value="0" disabled>SELECCIONE CIUDAD</option>
+    <option *ngFor="let ciudad of ciudades">
+      {{ ciudad }}
+    </option>
+  </select>
+</div>

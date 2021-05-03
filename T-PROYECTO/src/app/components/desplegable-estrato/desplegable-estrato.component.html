@@ -1,0 +1,10 @@
+<div class="estrato">
+  <div class="desplegable" (change)="capturar()">
+    <select class="form-control form-control-lg" [(ngModel)]="estratoSeleccionada">
+      <option value="0" disabled>SELECCIONAR ESTRATO</option>
+      <option *ngFor="let estrato of estratos">
+        {{ estrato }}
+      </option>
+    </select>
+  </div>
+</div>

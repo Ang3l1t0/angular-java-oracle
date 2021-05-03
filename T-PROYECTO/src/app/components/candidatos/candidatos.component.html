@@ -1,0 +1,34 @@
+<div class="tabla">
+  <table class="table table-striped table-bordered">
+    <caption>Listado de todos los candidatos inscritos</caption>
+    <thead>
+      <tr>
+        <th scope="col">NUMERO DOCUMENTO</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">APELLIDO</th>
+        <th scope="col">EDAD</th>
+        <th scope="col">SEXO</th>
+        <th scope="col">CIUDAD</th>
+        <th scope="col">NIVEL EDUCATIVO</th>
+        <th scope="col">PROFESION</th>
+        <th scope="col">BARRIO</th>
+        <th scope="col">ESTRATO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidato of candidatos | paginate: { itemsPerPage: 8, currentPage: p }">
+        <td>{{ candidato.documento }}</td>
+        <td>{{ candidato.nombres }}</td>
+        <td>{{ candidato.apellidos }}</td>
+        <td>{{ candidato.edad }}</td>
+        <td>{{ candidato.sexo }}</td>
+        <td>{{ candidato.ciudad }}</td>
+        <td>{{ candidato.nivelEducativo }}</td>
+        <td>{{ candidato.profesion }}</td>
+        <td>{{ candidato.barrio }}</td>
+        <td>{{ candidato.estrato }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

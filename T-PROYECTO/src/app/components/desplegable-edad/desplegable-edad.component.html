@@ -1,0 +1,10 @@
+<div class="edad">
+  <div class="desplegable" (change)="capturar()">
+    <select class="form-control form-control-lg" [(ngModel)]="opcionSeleccionada">
+      <option value="0" disabled>EDAD</option>
+      <option *ngFor="let edad of edades">
+        {{ edad }}
+      </option>
+    </select>
+  </div>
+</div>

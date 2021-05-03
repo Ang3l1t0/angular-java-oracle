@@ -1,0 +1,8 @@
+<div class="desplegable" (change)="capturar()">
+  <select class="form-control form-control-lg" [(ngModel)]="opcionSeleccionada">
+    <option value="0" disabled>SELECCIONE CRITERIO</option>
+    <option *ngFor="let criterio of criterios">
+      {{ criterio }}
+    </option>
+  </select>
+</div>

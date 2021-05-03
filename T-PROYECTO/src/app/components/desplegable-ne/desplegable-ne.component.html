@@ -1,0 +1,8 @@
+<div class="desplegable" (change)="capturar()">
+  <select class="form-control form-control-lg" [(ngModel)]="neSeleccionada">
+    <option value="0" disabled>NIVEL EDUCATIVO</option>
+    <option *ngFor="let nivelEducativo of nivelesEducativos">
+      {{ nivelEducativo }}
+    </option>
+  </select>
+</div>
